@@ -57,14 +57,14 @@ export class MyExtensionDialogComponent implements OnInit {
 
         if (entries[i].entry.nodeId == this.nodeId) {
           let link = this.hostName + "/#/preview/s/" + entries[i].entry.id;
-          window.location = 'mailto:?subject=' + encodeURIComponent(this.nodeName) + '&body=' + encodeURIComponent(link);
+          window.location.href  = 'mailto:?subject=' + encodeURIComponent(this.nodeName) + '&body=' + encodeURIComponent(link);
         }
       }
     });
     this.sharedLinksApiService.createSharedLinks(this.nodeId).pipe(take(1)).subscribe(sharedlink => {
       this.sharednode = sharedlink.entry.id;
       let link = this.hostName + "/#/preview/s/" + this.sharednode;
-      window.location = 'mailto:?subject=' + encodeURIComponent(this.nodeName) + '&body=' + encodeURIComponent(link);
+      window.location.href  = 'mailto:?subject=' + encodeURIComponent(this.nodeName) + '&body=' + encodeURIComponent(link);
     });
 
     this.dialogRef.close();
